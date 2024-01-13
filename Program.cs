@@ -1,5 +1,4 @@
 using Microsoft.OpenApi.Models;
-using PizzaStore.DB;
 using Microsoft.EntityFrameworkCore;
 using PizzaStore.Models;
 
@@ -22,12 +21,22 @@ app.UseSwaggerUI(c =>
 {
    c.SwaggerEndpoint("/swagger/v1/swagger.json", "PizzaStore API V1");
 });
-    
-app.MapGet("/pizzas", async (PizzaDb db) => await db.Pizzas.ToListAsync()); // retorna um lista de items
+
+// Retorna uma lista de items    
+app.MapGet("/pizzas", async (PizzaDb db) => await db.Pizzas.ToListAsync());
+
+// Cria um item no banco de dados
+app.MapPost("/pizza", async (PizzaDb db, Pizza pizza) =>
+{
+   await db.Pizzas.AddAsync(pizza);
+   await db.SaveChangesAsync();
+   return Results.Created($"/pizza/{pizza.Id}", pizza);
+});
+
+app.Run();
 
 /* app.MapGet("/pizzas", () => PizzaDB.GetPizzas());
 app.MapPost("/pizzas", (Pizza pizza) => PizzaDB.CreatePizza(pizza));
 app.MapPut("/pizzas", (Pizza pizza) => PizzaDB.UpdatePizza(pizza));
 app.MapDelete("/pizzas/{id}", (int id) => PizzaDB.RemovePizza(id)); */
 
-app.Run();
