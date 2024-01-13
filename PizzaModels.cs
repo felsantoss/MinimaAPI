@@ -1,5 +1,5 @@
 namespace PizzaStore.Models;
-
+using Microsoft.EntityFrameworkCore;
 public class Pizza 
 {
     public int Id {get; set;}
