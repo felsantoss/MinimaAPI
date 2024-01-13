@@ -31,3 +31,6 @@ C:\Users\felip\OneDrive\Documentos\MinimaAPI\obj\Debug\net8.0\refint\PizzaStore.
 C:\Users\felip\OneDrive\Documentos\MinimaAPI\obj\Debug\net8.0\PizzaStore.pdb
 C:\Users\felip\OneDrive\Documentos\MinimaAPI\obj\Debug\net8.0\PizzaStore.genruntimeconfig.cache
 C:\Users\felip\OneDrive\Documentos\MinimaAPI\obj\Debug\net8.0\ref\PizzaStore.dll
+C:\Users\felip\OneDrive\Documentos\MinimaAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\felip\OneDrive\Documentos\MinimaAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\felip\OneDrive\Documentos\MinimaAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
