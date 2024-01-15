@@ -4,12 +4,14 @@ using PizzaStore.Models;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
-    
+// string para conexão com o banco de dados
+var connectionString = builder.Configuration.GetConnectionString("Pizzas") ?? "Data source=Pizzas.db"; 
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddDbContext<PizzaDb>(options => options.UseInMemoryDatabase("items"));
+builder.Services.AddSqlite<PizzaDb>(connectionString);
 builder.Services.AddSwaggerGen(c => 
 {
      c.SwaggerDoc("v1", new OpenApiInfo { Title = "PizzaStore API", 
