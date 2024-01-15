@@ -1,6 +1,10 @@
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using PizzaStore.Models;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+
 
 var builder = WebApplication.CreateBuilder(args);
     
@@ -17,7 +21,6 @@ var app = builder.Build();
     
 app.UseSwagger();
 app.UseSwaggerUI(c =>
-
 {
    c.SwaggerEndpoint("/swagger/v1/swagger.json", "PizzaStore API V1");
 });
